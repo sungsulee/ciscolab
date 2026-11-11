@@ -1,0 +1,55 @@
+# ==========================================
+# Ansible Specific
+# ==========================================
+# Local retry files (generated when a playbook fails)
+*.retry
+
+# Shared/local cash directories used by modern extensions & linting
+.ansible/
+.cache/
+
+# Local collection / role downloads (if installing dependencies locally)
+collections/
+roles/
+ansible_collections/
+
+# Ansible Lint caches
+.ansible-lint
+
+# ==========================================
+# Credentials & Secrets (CRITICAL)
+# ==========================================
+# Local vault password file if you use '--vault-password-file'
+.vault_pass
+.vault_password
+*secret*
+*.pem
+*.key
+
+# ==========================================
+# Environment and Configuration
+# ==========================================
+# Local override configuration
+ansible.cfg
+
+# Local environment variables
+.env
+.env.*
+
+# ==========================================
+# Python / Build Artifacts (Since Ansible is Python-based)
+# ==========================================
+*.py[co]
+__pycache__/
+.venv/
+venv/
+.pytest_cache/
+
+# ==========================================
+# IDE and OS files
+# ==========================================
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
