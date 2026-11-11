@@ -1,0 +1,47 @@
+---
+- name: Test Cisco IOSv Connectivity
+  hosts: ios
+  gather_facts: false
+
+  tasks:
+    - name: Test IOSv SSH connection
+      cisco.ios.ios_command:
+        commands:
+          - show version
+      register: ios_result
+
+    - name: Display IOSv connectivity result
+      ansible.builtin.debug:
+        msg:
+          - "Device: {{ inventory_hostname }}"
+          - "IP/FQDN: {{ ansible_host }}"
+          - "Status: SUCCESS"
+          - "SSH connection established"
+
+    - name: Display IOSv version
+      ansible.builtin.debug:
+        var: ios_result.stdout_lines
+
+
+- name: Test Cisco NX-OS Connectivity
+  hosts: nxos
+  gather_facts: false
+
+  tasks:
+    - name: Test NX-OS SSH connection
+      cisco.nxos.nxos_command:
+        commands:
+          - show version
+      register: nxos_result
+
+    - name: Display NX-OS connectivity result
+      ansible.builtin.debug:
+        msg:
+          - "Device: {{ inventory_hostname }}"
+          - "IP/FQDN: {{ ansible_host }}"
+          - "Status: SUCCESS"
+          - "SSH connection established"
+
+    - name: Display NX-OS version
+      ansible.builtin.debug:
+        var: nxos_result.stdout_lines
