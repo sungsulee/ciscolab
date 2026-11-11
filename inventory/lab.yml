@@ -22,6 +22,7 @@ all:
         ansible_network_os: cisco.ios.ios
         ansible_user: "{{ lookup('env', 'ANSIBLE_USERNAME') }}"
         ansible_ssh_private_key_file: "{{ lookup('env', 'ANSIBLE_SSH_KEY') }}"
+        ansible_network_cli_ssh_type: paramiko
         ansible_host_key_checking: False
 
  
