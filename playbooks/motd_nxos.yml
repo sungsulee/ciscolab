@@ -1,0 +1,33 @@
+---
+- name: Configure NX-OS Banner MOTD
+  hosts: nxos
+  gather_facts: no
+  tasks:
+    - name: Set MOTD Banner
+      cisco.nxos.nxos_banner:
+        banner: motd
+        text: |
+          ****************************************************************************
+          **                                                                        **
+          **  NOTICE: This network system is solely for the use of authorized       **
+          **  users for purposes authorized by our organization. Access is          **
+          **  restricted to authorized users only. Unauthorized access of this      **
+          **  network system may be a violation of state and federal, civil         **
+          **  and criminal laws. You have no expectation of privacy in the use      **
+          **  of this network system. To ensure that the network system is          **
+          **  functioning properly, individuals using this system are subject       **
+          **  to having all their activities on the network system monitored        **
+          **  and recorded by personnel of our organization. Use of this network    **
+          **  system by you evidences your express consent to such monitoring       **
+          **  and your agreement that if such monitoring reveals evidence of        **
+          **  possible misuse or conduct of criminal activity, personnel may        **
+          **  provide the evidence of such activity to law enforcement authorities. **
+          **                                                                        **
+          ****************************************************************************
+        state: present
+
+    - name: Copy running-config to startup-config
+      cisco.nxos.nxos_config:
+        save_when: always
+        
+        
